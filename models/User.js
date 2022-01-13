@@ -26,7 +26,7 @@ const User = new Schema({
   }],
   friend: [{
     tyep: Schema.Types.ObjectId,
-    ref 'friend'
+    ref: 'friend'
   }]
 
   })
