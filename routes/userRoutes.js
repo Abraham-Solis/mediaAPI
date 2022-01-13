@@ -4,7 +4,7 @@ const { User } = require('../models')
 
 //Get all Users
 router.get('/users', async function (req, res) {
-  const user = await User.find({}).populate('thought')
+  const users = await User.find({}).populate('thought')
   res.json(user)
 
 })
@@ -34,3 +34,5 @@ router.delete('/users/id:', async function (req, res) {
   await User.findByIdAndDelete(req.params.id)
   res.sendStatus(200)
 })
+
+module.exports = router
