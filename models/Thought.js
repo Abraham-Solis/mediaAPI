@@ -3,7 +3,7 @@ const { Schema, model } = require('mongoose')
 const Thought = new Schema({
   thoughtText: {
     type: String,
-    require: true,
+    required: true,
     maxlength: 280
 
   },
