@@ -19,7 +19,7 @@ const User = new Schema({
     },
     required: [true, "Email required"]
   },
-  thought: [{
+  thoughts: [{
     type: Schema.Types.ObjectId,
     ref: 'thought',
   }],

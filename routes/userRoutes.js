@@ -4,14 +4,14 @@ const { User } = require('../models')
 
 //Get all Users
 router.get('/users', async function (req, res) {
-  const users = await User.find({}).populate('thought')
+  const users = await User.find({}).populate('thoughts')
   res.json(users)
 
 })
 
 //Get ONE User by id
 router.get('/users/:id', async function (req, res) {
-  const user = await User.findById(req.params.id).populate('thought')
+  const user = await User.findById(req.params.id).populate('thoughts')
   res.json(user)
 })
 

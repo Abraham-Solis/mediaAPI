@@ -4,7 +4,7 @@ const { Reaction, Thought, User } = require('../models')
 //POST ONE Reaction 
 router.post('/reactions', async function (req, res) {
   const reaction = await Reaction.create(req.body)
-  await Reaction.findByIdAndUpdate(req.body.user, {
+  await Thought.findByIdAndUpdate(req.body.thought, {
     $push: { reactions: reaction._id }
   })
   res.json(reaction)
