@@ -4,12 +4,13 @@ const { Thought, User } = require('../models')
 //GET all Thoughts
 router.get('/thoughts', async function (req, res) {
   const thoughts = await Thought.find({}).populate('user reaction')
+  res.json(thoughts)
 })
 
 //GET ONE Thought
-router.get('/thoughts/id:', async function (req, res) {
+router.get('/thoughts/:id', async function (req, res) {
   const thought = await Thought.findById(req.params.id).populate('user reaction')
-  res.json(thoguht)
+  res.json(thought)
 })
 
 //POST ONE Thought 
@@ -18,6 +19,7 @@ router.post('/thoughts', async function (req, res) {
   await User.findByIdAndUpdate(req.body.user, {
     $push: { thoughts: thought._id }
   })
+  res.json(thought)
 })
 
 //PUT one thought by id
@@ -27,7 +29,7 @@ router.put('/thoughts/:id', async function (req, res) {
 })
 
 //DELETE one thought by id
-router.delete('/thoughts/id:', async function (req, res) {
+router.delete('/thoughts/:id', async function (req, res) {
   await Thought.findByIdAndDelete(req.params.id)
   res.sendStatus(200)
 })

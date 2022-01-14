@@ -3,8 +3,8 @@ const { Schema, model } = require('mongoose')
 const Thought = new Schema({
   thoughtText: {
     type: String,
-    required: true,
-    maxlength: 280
+    maxlength: 280,
+    required: true
 
   },
   username: {
