@@ -9,7 +9,7 @@ router.get('/users', async function (req, res) {
 
 })
 
-//Get ONE User by ID 
+//Get ONE User by id
 router.get('/users/:id', async function (req, res) {
   const user = await User.findById(req.params.id).populate('thought')
   res.json(user)
@@ -29,7 +29,7 @@ router.put('/users/:id', async function (req, res) {
 
 })
 
-//DELETE one User
+//DELETE one User by id
 router.delete('/users/:id', async function (req, res) {
   await User.findByIdAndDelete(req.params.id)
   res.sendStatus(200)

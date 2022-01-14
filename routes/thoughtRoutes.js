@@ -7,7 +7,7 @@ router.get('/thoughts', async function (req, res) {
   res.json(thoughts)
 })
 
-//GET ONE Thought
+//GET ONE Thought by id
 router.get('/thoughts/:id', async function (req, res) {
   const thought = await Thought.findById(req.params.id).populate('user reaction')
   res.json(thought)
