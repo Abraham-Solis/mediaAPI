@@ -3,12 +3,12 @@ const { Thought, User } = require('../models')
 
 //GET all Thoughts
 router.get('/thoughts', async function (req, res) {
-  const thoughts = await Thought.find({}).populate('user')
+  const thoughts = await Thought.find({}).populate('user reaction')
 })
 
 //GET ONE Thought
 router.get('/thoughts/id:', async function (req, res) {
-  const thought = await Thought.findById(req.params.id).populate('user')
+  const thought = await Thought.findById(req.params.id).populate('user reaction')
   res.json(thoguht)
 })
 
