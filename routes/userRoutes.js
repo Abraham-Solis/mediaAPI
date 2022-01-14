@@ -32,10 +32,17 @@ router.delete('/users/:id', async function (req, res) {
   res.sendStatus(200)
 })
 
-// add friend
-router.post('/user/:userId/friend/:friendId', async function (req, res) {
+// Add a Friend
+router.post('/users/:userId/friend/:friendId', async function (req, res) {
   const friend = await User.findByIdAndUpdate(req.params.userId, { $addToSet: { friends: req.params.friendId } })
   const friend2 = await User.findByIdAndUpdate(req.params.friendId, { $addToSet: { friends: req.params.userId } })
+  res.sendStatus(200)
+})
+
+// Delete a Friend
+router.delete('/users/:userId/friend/:friendId', async function (req, res) {
+  const friend = await User.findByIdAndUpdate(req.params.userId, { $pull: { friends: req.params.friendId } })
+  const friend2 = await User.findByIdAndUpdate(req.params.friendId, { $pull: { friends: req.params.userId } })
   res.sendStatus(200)
 })
 
