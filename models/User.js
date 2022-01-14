@@ -5,7 +5,7 @@ const User = new Schema({
     type: String,
     required: true,
     unique: true,
-    trim: true,
+    trim: true
   },
   email: {
     type: String,
@@ -13,35 +13,34 @@ const User = new Schema({
     unique: true,
     validate: {
       validator: function (v) {
-        return /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(v);
+        return /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(v)
       },
-      message: "Please enter a valid email"
+      message: 'Please enter a valid email'
     },
-    required: [true, "Email required"]
+    required: [true, 'Email required']
   },
   thoughts: [{
     type: Schema.Types.ObjectId,
-    ref: 'thought',
+    ref: 'thought'
   }],
   friends: [
     {
       type: Schema.Types.ObjectId,
-      ref: 'user',
+      ref: 'user'
     }
-  ],
+  ]
 
 },
 
-  {
-    toJSON: {
-      virtuals: true,
-    },
-    id: false,
-  })
+{
+  toJSON: {
+    virtuals: true
+  },
+  id: false
+})
 
 User.virtual('friendCount').get(function () {
-  return this.friends.length;
-});
-
+  return this.friends.length
+})
 
 module.exports = model('user', User)

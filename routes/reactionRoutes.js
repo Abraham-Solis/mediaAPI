@@ -1,7 +1,7 @@
 const router = require('express').Router()
-const { Reaction, Thought, User } = require('../models')
+const { Reaction, Thought } = require('../models')
 
-//POST ONE Reaction 
+// POST ONE Reaction
 router.post('/reactions', async function (req, res) {
   const reaction = await Reaction.create(req.body)
   await Thought.findByIdAndUpdate(req.body.thought, {
@@ -10,7 +10,7 @@ router.post('/reactions', async function (req, res) {
   res.json(reaction)
 })
 
-//DELETE one Reaction by id
+// DELETE one Reaction by id
 router.delete('/reactions/:id', async function (req, res) {
   await Reaction.findByIdAndDelete(req.params.id)
   res.sendStatus(200)
