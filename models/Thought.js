@@ -8,7 +8,7 @@ const Thought = new Schema({
     required: true
 
   },
-  username: {
+  user: {
     type: Schema.Types.ObjectId,
     ref: 'user',
     required: true

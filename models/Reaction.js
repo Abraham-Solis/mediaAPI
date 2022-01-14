@@ -6,7 +6,7 @@ const Reaction = new Schema({
     required: true,
     maxlength: 280
   },
-  username: {
+  user: {
     type: Schema.Types.ObjectId,
     ref: 'user',
     required: true
