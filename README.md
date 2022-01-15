@@ -2,7 +2,7 @@
 ![GitHub followers](https://img.shields.io/github/followers/Abraham-Solis?style=social)
 
 ## Description
-This is an API for a social network web application where users can share their thoughts, react to friends’ thoughts, and create a friend list. It uses Express.js for routing, a MongoDB database, and the Mongoose ODM. In addition it will timestamp data.
+This is an API for a social network web application where users can share their thoughts, react to friends’ thoughts, and create a friend list. It uses Express.js for routing and a MongoDB database. In addition it will timestamp data.
 
 <img src="https://user-images.githubusercontent.com/92957388/149601541-1207261b-cffc-4172-9a7c-978f02d0de70.PNG" alt="PostMan Preview">
 
